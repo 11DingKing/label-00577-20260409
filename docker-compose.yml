@@ -1,0 +1,40 @@
+services:
+  # 后端 API 服务
+  stock-analyzer:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: stock-analyzer-api
+    ports:
+      - "8091:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/stockanalyzer.db
+      - AiSettings__Provider=Mock
+    volumes:
+      - stock-analyzer-data:/app/data
+      - stock-analyzer-logs:/app/logs
+    restart: unless-stopped
+
+  # 前端管理界面
+  frontend-admin:
+    build:
+      context: ./frontend-admin
+      dockerfile: Dockerfile
+    container_name: stock-analyzer-admin
+    ports:
+      - "8092:80"
+    depends_on:
+      stock-analyzer:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  stock-analyzer-data:
+    driver: local
+  stock-analyzer-logs:
+    driver: local
+
+networks:
+  default:
+    name: stock-analyzer-network

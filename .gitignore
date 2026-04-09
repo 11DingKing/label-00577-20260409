@@ -1,0 +1,148 @@
+# =========================
+# .NET / C#
+# =========================
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## MSBuild
+*.rsuser
+/connected services/
+/local.properties
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+nuget.exe
+
+## Build Server
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## IDE
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+*.code-workspace
+
+## Rider
+.idea/
+*.sln.iml
+
+## VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# =========================
+# Windows
+# =========================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# =========================
+# Linux
+# =========================
+*~
+
+# =========================
+# Logs and Databases
+# =========================
+*.log
+*.sql
+*.sqlite
+*.db
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.*
+*.local
+appsettings.*.local.json
+secrets.json
+*.pem
+*.key
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+docker-compose.*.local.yml
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# =========================
+# Test Results
+# =========================
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# =========================
+# Data Files (runtime generated)
+# =========================
+backend/src/StockAnalyzer.Api/stockanalyzer.db
+backend/src/StockAnalyzer.Api/logs/
+data/
+!backend/src/StockAnalyzer.Infrastructure/Data/
+!backend/src/StockAnalyzer.Infrastructure/Data/
+
+# =========================
+# Frontend (Vue/Node)
+# =========================
+frontend-admin/node_modules/
+frontend-admin/dist/
+frontend-admin/.vite/
+frontend-admin/src/auto-imports.d.ts
+frontend-admin/src/components.d.ts
+*.local
