@@ -103,6 +103,8 @@ export const useAnalysisStore = defineStore("analysis", () => {
     page?: number;
     pageSize?: number;
     symbol?: string;
+    startDate?: string;
+    endDate?: string;
     recommendation?: number;
   }) => {
     loading.value = true;

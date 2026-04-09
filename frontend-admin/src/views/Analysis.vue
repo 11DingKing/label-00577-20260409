@@ -165,6 +165,15 @@
             <el-tag type="danger" effect="dark" size="small">卖出</el-tag>
           </el-option>
         </el-select>
+        <el-date-picker
+          v-model="dateRange"
+          type="daterange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          value-format="YYYY-MM-DD"
+          clearable
+        />
         <el-button type="primary" @click="fetchResults" :icon="Search">
           查询
         </el-button>
@@ -289,6 +298,7 @@ const forceRerun = ref(false);
 const selectedSymbol = ref("");
 const filterSymbol = ref("");
 const filterRecommendation = ref<number | "">("");
+const dateRange = ref<[string, string] | null>(null);
 const currentPage = ref(1);
 const pageSize = ref(20);
 const total = ref(0);
@@ -313,6 +323,7 @@ const getRecommendationText = (rec: string) => {
 };
 
 const getConfidenceColor = (confidence: number) => {
+  if (confidence === 0) return "#94a3b8";
   if (confidence >= 80) return "#10b981";
   if (confidence >= 60) return "#f59e0b";
   return "#ef4444";
@@ -344,6 +355,8 @@ const fetchResults = async () => {
       pageSize: pageSize.value,
       symbol: filterSymbol.value || undefined,
       recommendation: filterRecommendation.value || undefined,
+      startDate: dateRange.value?.[0] || undefined,
+      endDate: dateRange.value?.[1] || undefined,
     });
     results.value = res.results;
     total.value = res.total;
@@ -355,6 +368,7 @@ const fetchResults = async () => {
 const resetFilters = () => {
   filterSymbol.value = "";
   filterRecommendation.value = "";
+  dateRange.value = null;
   currentPage.value = 1;
   fetchResults();
 };
